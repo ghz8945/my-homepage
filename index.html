@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>郭洪志 | AI Developer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-terminal">
+      <div class="loading-bar">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="loading-lines">
+        <p><span class="t-green">$</span> initializing portfolio...</p>
+        <p><span class="t-green">$</span> loading modules... <span class="t-cyan">OK</span></p>
+        <p><span class="t-green">$</span> compiling components... <span class="t-cyan">OK</span></p>
+        <p><span class="t-green">$</span> deploying to localhost <span class="t-cyan">DONE</span></p>
+      </div>
+      <div class="loading-progress">
+        <div class="loading-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particles"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">郭洪志</a>
+      <ul class="nav-links">
+        <li><a href="#hero">首页</a></li>
+        <li><a href="#projects">项目</a></li>
+        <li><a href="#skills">技能</a></li>
+        <li><a href="#timeline">经历</a></li>
+        <li><a href="#guestbook">留言</a></li>
+        <li><a href="#life">生活</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="theme-toggle" title="切换主题">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section - Terminal Style -->
+  <section id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="container hero-content">
+      <div class="hero-avatar-wrapper">
+        <canvas id="avatar-canvas" width="120" height="120" class="hero-avatar"></canvas>
+      </div>
+      <h1 class="hero-name">郭洪志</h1>
+      <p class="hero-slogan">
+        <span id="typewriter"></span><span class="cursor">|</span>
+      </p>
+
+      <div class="terminal-box">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">ghz@portfolio ~</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <p><span class="t-green">ghz@portfolio</span>:<span class="t-cyan">~</span>$ cat profile.json</p>
+          <div id="terminal-output"></div>
+          <p class="terminal-cursor-line"><span class="t-green">ghz@portfolio</span>:<span class="t-cyan">~</span>$ <span class="terminal-cursor">█</span></p>
+        </div>
+      </div>
+
+      <div class="hero-tags">
+        <span class="tag">Python</span>
+        <span class="tag">C++</span>
+        <span class="tag">C</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Linux</span>
+        <span class="tag">软件测试</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="hero-cta">查看我的项目 ↓</a>
+        <button id="download-card" class="hero-btn-secondary" title="下载电子名片">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          下载名片
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">&gt;_</span> 项目展厅
+      </h2>
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="test">测试</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="rag">RAG</button>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card" data-tags="test,ai">
+          <div class="card-header">
+            <span class="card-icon">🧠</span>
+            <span class="card-award">全国一等奖</span>
+          </div>
+          <h3 class="card-title">基于深度学习的 AI 辅助脑部肿瘤识别系统</h3>
+          <p class="card-desc">2025.04 - 2025.08 &middot; 负责系统整体测试与质量保障，围绕"多模态上传-预处理-模型推理-报告生成"核心流程设计测试用例。累计提交并推动解决多个功能 Bug，参与压力测试定位数据库查询缓慢问题，协助优化索引提升查询效率。完成跨平台兼容性验证，助力团队取得<strong>全国一等奖</strong>。</p>
+          <div class="card-tech">
+            <span>软件测试</span>
+            <span>Bug 追踪</span>
+            <span>压力测试</span>
+            <span>兼容性验证</span>
+          </div>
+          <button class="card-detail-btn" onclick="openModal('brain')">查看测试报告 →</button>
+        </div>
+
+        <div class="project-card" data-tags="ai,rag">
+          <div class="card-header">
+            <span class="card-icon">💬</span>
+          </div>
+          <h3 class="card-title">基于 RAG 和 ReAct 的智能客服系统</h3>
+          <p class="card-desc">2026.01 - 2026.03 &middot; 自学 LangChain、ChromaDB 等技术，独立完成融合 RAG 检索增强生成和 ReAct 智能体架构的垂直领域智能客服系统。搭建 Chroma 向量知识库（6 类文档、1000+ 条知识），设计 7 个自定义工具和动态提示词切换机制，实现个性化报告生成。</p>
+          <div class="card-tech">
+            <span>LangChain</span>
+            <span>ChromaDB</span>
+            <span>RAG</span>
+            <span>ReAct</span>
+          </div>
+          <button class="card-detail-btn" onclick="openModal('rag')">查看测试报告 →</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Test Report Modals -->
+  <div id="modal-brain" class="modal-overlay" onclick="closeModal('brain', event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('brain', null)">&times;</button>
+      <h3>🧠 脑部肿瘤识别系统 — 测试报告</h3>
+      <div class="modal-section">
+        <h4>测试范围</h4>
+        <p>围绕"多模态上传 → 预处理 → 模型推理 → 报告生成"核心流程，覆盖功能测试、兼容性测试、压力测试三大维度。</p>
+      </div>
+      <div class="modal-section">
+        <h4>核心测试用例</h4>
+        <ul>
+          <li>上传模块：支持 DICOM/PNG/JPEG 格式校验，异常文件拦截率 100%</li>
+          <li>推理模块：单张 MRI 推理耗时 &lt; 3s，批量推理无内存泄漏</li>
+          <li>报告生成：输出格式一致性验证，边界值（空图/超大图）处理</li>
+          <li>兼容性：Windows/Linux × Chrome/Edge 共 4 种组合全覆盖</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h4>Bug 统计</h4>
+        <p>累计提交 Bug <strong>12</strong> 个，其中严重 2 个（接口超时、数据保存失败），一般 7 个（前端显示异常），建议 3 个。全部在迭代周期内修复验证通过。</p>
+      </div>
+      <div class="modal-section">
+        <h4>性能优化</h4>
+        <p>通过压力测试发现历史记录查询在 50 并发下响应 &gt; 5s，定位为数据库缺少联合索引。协助开发添加索引后，查询效率提升至 &lt; 0.5s。</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-rag" class="modal-overlay" onclick="closeModal('rag', event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('rag', null)">&times;</button>
+      <h3>💬 RAG 智能客服系统 — 测试报告</h3>
+      <div class="modal-section">
+        <h4>测试范围</h4>
+        <p>覆盖知识库构建、检索召回、ReAct 工具调用、报告生成四大模块，重点验证端到端问答准确率与工具调用正确性。</p>
+      </div>
+      <div class="modal-section">
+        <h4>核心测试用例</h4>
+        <ul>
+          <li>知识库入库：6 类文档（PDF/Word/TXT）切片正确性，1000+ 条知识无遗漏</li>
+          <li>检索模块：Top-K 召回准确率测试，混合检索 vs 纯向量检索对比</li>
+          <li>工具调用：7 个自定义工具（天气/用户数据/报告等）参数校验与异常处理</li>
+          <li>多轮对话：上下文保持测试，连续 5 轮问答无信息丢失</li>
+          <li>报告生成：基于 10 个用户 12 个月数据的个性化报告正确性验证</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h4>优化成果</h4>
+        <p>通过优化检索策略（调整 chunk size、引入重排序），问答准确率从 72% 提升至 89%。工具调用成功率从 85% 提升至 96%。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">&gt;_</span> 技能栈
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">Python</span>
+            <span class="skill-percent">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">C++</span>
+            <span class="skill-percent">75%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">C</span>
+            <span class="skill-percent">70%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">SQL</span>
+            <span class="skill-percent">75%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">Linux</span>
+            <span class="skill-percent">70%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">软件测试</span>
+            <span class="skill-percent">80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">LangChain / RAG</span>
+            <span class="skill-percent">70%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">数据结构与算法</span>
+            <span class="skill-percent">65%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">&gt;_</span> 经历时间轴
+      </h2>
+      <div class="timeline">
+
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-date">2022.09</span>
+            <h3>入学沈阳航空航天大学</h3>
+            <p>物联网工程专业，主修高等数学、数据结构、计算机网络、操作系统等课程。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-date">2024</span>
+            <h3>数学建模比赛 校一等奖</h3>
+            <p>参加数学建模竞赛，锻炼了数据分析与团队协作能力。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-date">2025.04 - 2025.08</span>
+            <h3>AI 辅助脑部肿瘤识别系统</h3>
+            <p>负责测试与质量保障，获全国大学生智能技术应用大赛<strong>全国一等奖</strong>。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-date">2026.01 - 2026.03</span>
+            <h3>RAG + ReAct 智能客服系统</h3>
+            <p>自学 LangChain、ChromaDB，独立完成融合 RAG 与 ReAct 架构的智能客服系统。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-date">2026.03 - 至今</span>
+            <h3>数字政通 · 项目实施实习生</h3>
+            <p>负责项目文档整理、Linux 服务器部署运维、SQL 数据查询与硬件设备联调测试。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Guestbook Section -->
+  <section id="guestbook">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">&gt;_</span> 留言板
+      </h2>
+      <div class="guestbook-form">
+        <div class="form-row">
+          <input type="text" id="msg-name" placeholder="你的昵称" maxlength="20">
+          <input type="email" id="msg-email" placeholder="你的邮箱" maxlength="50">
+        </div>
+        <textarea id="msg-content" placeholder="写下你想说的话..." rows="3" maxlength="500"></textarea>
+        <button id="msg-submit" class="btn-primary">发表留言</button>
+      </div>
+      <div id="msg-list" class="msg-list"></div>
+    </div>
+  </section>
+
+  <!-- Life Section -->
+  <section id="life">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="title-icon">&gt;_</span> 热爱与生活
+      </h2>
+      <div class="life-grid">
+        <div class="life-card">
+          <div class="life-icon">🎮</div>
+          <h3>打王者</h3>
+          <p>放松方式之一，享受团队配合与逆风翻盘的快感。</p>
+        </div>
+        <div class="life-card">
+          <div class="life-icon">📺</div>
+          <h3>追剧</h3>
+          <p>喜欢烧脑悬疑和心理博弈类作品，闲暇时刷剧充电。</p>
+        </div>
+        <div class="life-card">
+          <div class="life-icon">🎵</div>
+          <h3>刷抖音</h3>
+          <p>科技区 + 搞笑区双修，偶尔被算法推荐到停不下来。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Contact Widget -->
+  <div id="contact-widget">
+    <div id="contact-bubble" title="快速联系">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </div>
+    <div id="contact-panel">
+      <div class="contact-header">
+        <strong>快速联系</strong>
+        <button id="contact-close">&times;</button>
+      </div>
+      <div class="contact-items">
+        <div class="contact-item" data-copy="1922726541@qq.com">
+          <div class="contact-icon">📧</div>
+          <div class="contact-info">
+            <span class="contact-label">邮箱</span>
+            <span class="contact-value">1922726541@qq.com</span>
+          </div>
+          <button class="copy-btn-small">复制</button>
+        </div>
+        <div class="contact-item" data-copy="13941002786">
+          <div class="contact-icon">📱</div>
+          <div class="contact-info">
+            <span class="contact-label">电话</span>
+            <span class="contact-value">13941002786</span>
+          </div>
+          <button class="copy-btn-small">复制</button>
+        </div>
+        <div class="contact-item" onclick="window.open('https://github.com/ghz8945')">
+          <div class="contact-icon">🐙</div>
+          <div class="contact-info">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">查看我的项目</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-contact">
+        <span>
+          📧 <a href="mailto:1922726541@qq.com">1922726541@qq.com</a>
+          <button class="copy-btn" onclick="copyText('1922726541@qq.com', this)">复制</button>
+        </span>
+        <span>
+          📱 <a href="tel:13941002786">13941002786</a>
+          <button class="copy-btn" onclick="copyText('13941002786', this)">复制</button>
+        </span>
+      </div>
+      <p class="footer-visitors">👁️ 访问次数：<span id="visit-count">0</span></p>
+      <p class="footer-text">&copy; 2026 郭洪志</p>
+      <p class="footer-quote">"Talk is cheap. Show me the code." — Linus Torvalds</p>
+    </div>
+  </footer>
+
+  <!-- Floating Chat Widget -->
+  <div id="chat-widget">
+    <div id="chat-bubble">
+      <div class="bubble-pulse"></div>
+      <span>💬</span>
+    </div>
+    <div id="chat-window">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">郭</div>
+          <div>
+            <strong>郭洪志的数字分身</strong>
+            <small>在线 · 离线模式</small>
+          </div>
+        </div>
+        <button id="chat-close">&times;</button>
+      </div>
+      <div id="chat-messages">
+        <div class="msg bot">
+          <div class="msg-bubble">你好！👋 我是郭洪志的数字分身，有什么想了解的尽管问我吧～<br><br>💡 试试输入 <code>/help</code> 看看隐藏指令</div>
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="输入你的问题或 /help ..." autocomplete="off">
+        <button id="chat-send">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
