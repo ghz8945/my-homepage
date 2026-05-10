@@ -2,6 +2,8 @@
 
 这是一个基于纯前端技术栈（HTML/CSS/JS）开发的个人简历与展示主页。项目旨在清晰、直观地展示个人的专业技能、项目经历，并提供一个轻量级的互动体验。
 
+##直接访问:https://my-homepage-sand-mu.vercel.app/
+
 
 ## 💡 主要功能
 
@@ -22,6 +24,6 @@
 
 本项目为静态网页页面，无需配置后端环境、数据库或安装依赖包。
 
-1. 将项目克隆到本地：
+将项目克隆到本地：
    ```bash
    git clone [https://github.com/GHZ8945/我的主页.git](https://github.com/GHZ8945/我的主页.git)
